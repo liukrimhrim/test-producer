@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CheckStyle-IDEA">
+    <option name="configuration">
+      <map>
+        <entry key="active-configuration" value="LOCAL_FILE:/Users/jinxin.liu/Downloads/checkstyle.xml:Confluent Checks" />
+        <entry key="checkstyle-version" value="8.16" />
+        <entry key="copy-libs" value="false" />
+        <entry key="location-0" value="BUNDLED:(bundled):Sun Checks" />
+        <entry key="location-1" value="BUNDLED:(bundled):Google Checks" />
+        <entry key="location-2" value="LOCAL_FILE:/Users/jinxin.liu/Downloads/checkstyle.xml:Confluent Checks" />
+        <entry key="property-2.checkstyle.customimportorder.customimportorderrules" value="" />
+        <entry key="property-2.checkstyle.customimportorder.severity" value="" />
+        <entry key="property-2.checkstyle.customimportorder.specialimportsregexp" value="" />
+        <entry key="property-2.checkstyle.finalclass.severity" value="" />
+        <entry key="property-2.checkstyle.finallocalvariable.severity" value="" />
+        <entry key="property-2.checkstyle.finalparameters.severity" value="" />
+        <entry key="property-2.checkstyle.hideutilityclassconstructor.severity" value="" />
+        <entry key="property-2.checkstyle.redundantimport.severity" value="" />
+        <entry key="property-2.checkstyle.redundantmodifier.severity" value="" />
+        <entry key="scan-before-checkin" value="false" />
+        <entry key="scanscope" value="JavaOnly" />
+        <entry key="suppress-errors" value="false" />
+      </map>
+    </option>
+  </component>
+</project>
