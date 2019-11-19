@@ -92,11 +92,11 @@ public class TestProducer {
     System.out.println("*** Starting Test Producer ***");
     final KafkaProducer<String, GenericRecord> producer1 = createProducer1();
     //final KafkaProducer<String, byte[]> producer2 = createProducer2();
-    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
-      System.out.println("### Stopping Test Producer ###");
-      producer1.flush();
-      producer1.close();
-    }));
+//    Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+//      System.out.println("### Stopping Test Producer ###");
+//      producer1.flush();
+//      producer1.close();
+//    }));
 
 
     final String key = "key1";
@@ -114,6 +114,8 @@ public class TestProducer {
       producer1.send(record);
     }
     System.out.println("sent 10 messages");
+    producer1.flush();
+    producer1.close();
 
 //    GenericRecord avroRecord1 = new GenericData.Record(schema);
 //    avroRecord1.put("f1", "value1");
