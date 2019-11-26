@@ -1,11 +1,7 @@
-import java.io.File;
-import java.io.IOException;
-import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
 import java.util.Properties;
 import java.util.Random;
-import org.apache.avro.Schema.Parser;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.ProducerConfig;
@@ -14,7 +10,6 @@ import org.apache.avro.generic.GenericData;
 import org.apache.avro.generic.GenericRecord;
 import io.confluent.kafka.serializers.KafkaAvroSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
-import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.connect.errors.ConnectException;
 
 public class TestProducer {
@@ -54,23 +49,23 @@ public class TestProducer {
         + "\"fields\":["
         + "{\"name\":\"timestamp\",\"type\":{\"type\":\"long\", \"logicalType\":\"timestamp-millis\"}},"
         + "{\"name\":\"time\",\"type\":{\"type\":\"int\", \"logicalType\":\"time-millis\"}},"
-        + "{\"name\":\"date\",\"type\":{\"type\":\"int\", \"logicalType\":\"date\"}},"
+        //+ "{\"name\":\"date\",\"type\":{\"type\":\"int\", \"logicalType\":\"date\"}},"
         + "{\"name\":\"decimal\",\"type\":{\"type\":\"bytes\", \"logicalType\":\"decimal\", \"precision\": 16, \"scale\": 5}}"
         + "]}";
     Schema.Parser parser = new Schema.Parser();
     return parser.parse(schemaDef);
   }
 
-  private static Schema readInSchema() {
-    File file = new File("/Users/jinxin.liu/schema.json");
-    Schema.Parser parser = new Schema.Parser();
-    try {
-      return parser.parse(file);
-    } catch (IOException e) {
-      System.err.println("file not found");
-      return null;
-    }
-  }
+//  private static Schema readInSchema() {
+//    File file = new File("/Users/jinxin.liu/schema.json");
+//    Schema.Parser parser = new Schema.Parser();
+//    try {
+//      return parser.parse(file);
+//    } catch (IOException e) {
+//      System.err.println("file not found");
+//      return null;
+//    }
+//  }
 
   private static ByteBuffer randDecimal(int precision) {
     Random rand = new Random();
@@ -82,7 +77,7 @@ public class TestProducer {
     Random rand = new Random();
     avroRecord.put("timestamp", (long) rand.nextInt(20000));
     avroRecord.put("time", rand.nextInt(20000));
-    avroRecord.put("date", rand.nextInt(20000));
+    //avroRecord.put("date", rand.nextInt(20000));
     avroRecord.put("decimal", randDecimal(16));
 
     return avroRecord;
